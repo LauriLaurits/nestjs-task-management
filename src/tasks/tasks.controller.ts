@@ -13,9 +13,11 @@ import { CreateTaskDto } from './dto/create-task.dto';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 import { UpdateTaskStatusDto } from './dto/update-task-status.dto';
 import { TaskEntity } from './task.entity';
+import { Logger } from '@nestjs/common';
 
 @Controller('tasks')
 export class TasksController {
+  private logger = new Logger('TasksController');
   constructor(private taskService: TasksService) {}
 
   @Get()

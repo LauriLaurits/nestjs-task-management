@@ -20,8 +20,7 @@ export class TasksRepository extends Repository<TaskEntity> {
         { search: `%${search}` },
       );
     }
-    const tasks = await query.getMany();
-    return tasks;
+    return await query.getMany();
   }
   async createTask(createTaskDto: CreateTaskDto): Promise<TaskEntity> {
     const { title, description } = createTaskDto;
